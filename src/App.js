@@ -1,14 +1,17 @@
-import React from 'react';
-import './index.css';
+import React from 'react'
+import "./index.css"
+import Home from './Homepages&comp/Landing'
+import NavBar from './Homepages&comp/NavBar'
+import About from './Homepages&comp/About'
+import Company from './Homepages&comp/Company'
 
-function App() {
+export default function App() {
   return (
-   <>
-   <h1 className='text-3xl text-blue-500 font-extrabold'>
-    Hello webpack
-   </h1>
-   </>
-  );
+    <>
+     <NavBar/>
+     <Home/>
+     <About/>
+     <Company/>
+    </>
+  )
 }
-
-export default App;
