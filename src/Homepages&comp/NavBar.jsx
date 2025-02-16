@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom"
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,12 +54,16 @@ export default function NavBar() {
             onChange={handleSearchChange}
             className="p-2 pl-10 outline-none w-64"
           />
+
+        <Link to="/signup">
           <button
             type="submit"
             className="bg-black text-white px-4 py-2 hover:bg-green-700"
           >
             Search
           </button>
+        </Link>
+
         </form>
 
         {/* Search icon for medium screens (md only) */}
@@ -77,9 +82,11 @@ export default function NavBar() {
         </div>
 
         {/* Sign-up Button (visible on md and up) */}
-        <button className="hidden md:block rounded-lg p-3 bg-black px-6 hover:bg-green-700 text-white transition-all">
-          Sign-up
-        </button>
+        <Link to="/signup">
+          <button className="hidden md:block rounded-lg p-3 bg-black px-6 hover:bg-green-700 text-white transition-all">
+            Sign-up
+          </button>
+        </Link>
       </header>
 
       {/* Medium Screen Search Overlay (md only) */}
