@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function JobOpportunities() {
   return (
+    <>
     <div className="bg-[#27272a] flex flex-col items-center justify-center p-16 sm:p-12 md:p-20 lg:p-24 relative">
       
       {/* Section Title */}
@@ -42,5 +43,19 @@ export default function JobOpportunities() {
         </button>
       </div>
     </div>
+    
+      {/* SVG Wave Transition to Next Section */}
+      <svg 
+         className="w-full h-auto"
+        xmlns="http://www.w3.org/2000/svg"  
+        viewBox="0 0 1440 320">
+      <path 
+        fill="#27272a" 
+        fill-opacity="1" 
+        d="M0,96L60,85.3C120,75,240,53,360,80C480,107,600,181,720,224C840,267,960,277,1080,250.7C1200,224,1320,160,1380,128L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+    </path>
+    </svg>
+  </>
+    
   );
 }
