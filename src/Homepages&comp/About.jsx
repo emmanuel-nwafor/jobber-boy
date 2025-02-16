@@ -20,8 +20,7 @@ export default function About() {
             <p className="text-white">
               Jobbie is a dynamic job search platform connecting job seekers with top recruiters.
               Our mission is to simplify job hunting by providing real-time job updates, career
-              insights, and a seamless user experience. Whether you're a fresh graduate or a seasoned
-              professional, Jobbie helps you land your dream job quickly and effortlessly.
+              insights, and a seamless user experience. Jobbie helps you land your dream job quickly and effortlessly.
             </p>
             <br />
             <button className="hover:bg-slate-700 hover:text-white transition-all p-3 pl-6 pr-6 bg-zinc-500 text-black">
@@ -29,7 +28,7 @@ export default function About() {
             </button>
           </div>
 
-          <div className="m-5">
+          <div className="">
             <img
               className="rotate-12 hover:-rotate-12 transition-all max-md:h-96 border-2 border-green-600 p-3"
               src={bg5}

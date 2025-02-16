@@ -45,13 +45,17 @@ export default function Home() {
   return (
     <div className="bg-no-repeat bg-cover bg-center min-h-screen flex items-center justify-center px-4"
          style={{ backgroundImage: `url(${bgImage})` }}>
-      <div className="text-center p-8 bg-black bg-opacity-50 rounded-lg">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl text-white font-bold">
+      <div className="text-center p-8 bg-opacity-50 rounded-lg">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl text-green-700 font-bold">
           {displayText}<span className="animate-pulse">|</span>
         </h1>
-        <p className="text-lg text-gray-200 mt-4">
-          We connect job <span className="text-green-600">seekers</span> with top <span className="text-pink-500">recruiters</span> worldwide.
-        </p>
+
+        <div>
+          <p className="text-lg text-gray-200 mt-4">
+            We connect job <span className="text-green-600">seekers</span> with top <span className="text-pink-600">recruiters</span> worldwide.
+          </p>
+        </div>
+
       </div>
     </div>
   );
