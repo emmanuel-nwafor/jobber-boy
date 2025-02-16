@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from "../assets/logo.png"
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,10 +9,10 @@ export default function NavBar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full h-[100px] max-md:h-[90px] bg-white shadow-lg flex items-center justify-between px-4 sm:px-8 z-50">
+      <header className="fixed top-0 left-0 w-full h-[100px] max-md:h-[90px] bg-white shadow-lg flex items-center justify-evenly max-md:justify-between px-4 sm:px-8 z-50">
         {/* Logo */}
-        <h1 className="text-3xl max-md:text-md m-2 text-black font-extrabold">
-          Jobbie
+        <h1 className="text-3xl max-md:text-sm flex items-center text-black font-extrabold">
+          <img src={logo} className='h-20 max-md:h-10' alt="" />Jobbie
         </h1>
 
         {/* Navigation Links */}
