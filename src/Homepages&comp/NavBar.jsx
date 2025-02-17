@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +18,7 @@ export default function NavBar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full h-[100px] max-md:h-[90px] bg-white shadow-lg flex items-center justify-between px-4 sm:px-8 z-50">
+      <header className="fixed top-0 left-0 w-full h-[100px] max-md:h-[90px] bg-white shadow-lg flex items-center justify-evenly z-50">
         {/* Logo */}
         <h1 className="text-3xl md:text-2xl lg:text-3xl max-md:text-sm flex items-center text-black font-extrabold">
           <img src={logo} className="h-20 max-md:h-10" alt="Jobbie Logo" />
@@ -54,16 +54,12 @@ export default function NavBar() {
             onChange={handleSearchChange}
             className="p-2 pl-10 outline-none w-64"
           />
-
-        <Link to="/signup">
           <button
             type="submit"
             className="bg-black text-white px-4 py-2 hover:bg-green-700"
           >
             Search
           </button>
-        </Link>
-
         </form>
 
         {/* Search icon for medium screens (md only) */}
@@ -76,16 +72,16 @@ export default function NavBar() {
 
         {/* Toggle Button for Mobile (below md) */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-2xl text-brown-600">
+          <button onClick={toggleMenu} className="text-3xl text-brown-600">
             <i className={`bx ${isMenuOpen ? "bx-x" : "bx-menu"}`}></i>
           </button>
         </div>
 
         {/* Sign-up Button (visible on md and up) */}
         <Link to="/signup">
-          <button className="hidden md:block rounded-lg p-3 bg-black px-6 hover:bg-green-700 text-white transition-all">
-            Sign-up
-          </button>
+        <button className="hidden md:block rounded-lg p-3 bg-black px-6 hover:bg-green-700 text-white transition-all">
+          Sign-up
+        </button>
         </Link>
       </header>
 
@@ -114,7 +110,7 @@ export default function NavBar() {
 
       {/* Dropdown Menu for Mobile (below md) */}
       {isMenuOpen && (
-        <div className="md:hidden fixed top-[130px] left-0 right-0 bg-white shadow-lg rounded-b-lg py-4 px-6 z-40">
+        <div className="md:hidden fixed top-[90px] left-0 right-0 bg-white shadow-lg rounded-b-lg py-4 px-6 z-40">
           <nav className="flex flex-col space-y-4">
             <p className="text-brown-400 hover:text-green-700 hover:underline cursor-pointer">
               Home
@@ -150,9 +146,12 @@ export default function NavBar() {
               </button>
             </form>
 
-            <button className="rounded-lg p-3 bg-black px-6 hover:bg-green-700 text-white transition-all">
+            <Link to="/signup"  className="text-center rounded-lg p-3 bg-black px-6 hover:bg-green-700 text-white transition-all">
+            <button className="text-center">
               Sign-up
             </button>
+            </Link>
+
           </nav>
         </div>
       )}

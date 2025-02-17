@@ -1,23 +1,24 @@
-import React from 'react'
-import "./index.css"
-import Home from './Homepages&comp/Landing'
-import NavBar from './Homepages&comp/NavBar'
-import About from './Homepages&comp/About'
-import Company from './Homepages&comp/Company'
-import Spotlight from './Homepages&comp/Spotlight'
-import Team from './Homepages&comp/Team'
+import React from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import "./index.css";
+
+import SignUp from './allUserspage/Signup';
+import Login from './allUserspage/Login';
+import AllRendering from './Homepages&comp/AllRendering';
+import JobSeekersDashboard from './allUserspage/JobSeekersDashboard';
+import RecruitersDashboard from './allUserspage/RecruitersDashboard';
 
 export default function App() {
   return (
-    <>
-     <div className='bg-zinc-900'>
-      <NavBar/>
-      <Home/>
-      <About/>
-      <Company/>
-      <Spotlight/>
-      <Team/>
-     </div>
-    </>
-  )
+      <div className='bg-zinc-900'>
+        <Routes>
+          <Route path="/" element={<AllRendering />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard/job_seeker" element={<JobSeekersDashboard />} />
+          <Route path="/dashboard/recruiter" element={<RecruitersDashboard />} />
+          <Route path="*" element={<Navigate to="/" />} /> {/* Redirect unknown paths */}
+        </Routes>
+      </div>
+  );
 }
