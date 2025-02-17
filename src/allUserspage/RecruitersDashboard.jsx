@@ -8,7 +8,7 @@ export default function RecruitersDashboard() {
   const [newJob, setNewJob] = useState({ title: "", company: "", location: "", experience: "", qualifications: "" });
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     const fetchJobs = async () => {
       try {
