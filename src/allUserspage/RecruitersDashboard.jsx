@@ -3,6 +3,9 @@ import { db } from "../firebaseConfig"; // Import Firestore config
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom"; // Import navigation for logout
 
+// import recruiterSvg
+import recruiter from "../assets/recruiter.svg"
+
 export default function RecruitersDashboard() {
   const [jobs, setJobs] = useState([]);
   const [newJob, setNewJob] = useState({ title: "", company: "", location: "", experience: "", qualifications: "" });
@@ -64,29 +67,29 @@ export default function RecruitersDashboard() {
           <i className='bx bx-x text-2xl'></i>
         </button>
         <h2 className="text-xl font-semibold mb-4">Post a Job</h2>
-        <input type="text" placeholder="Job Title" className=" rounded-lg w-full p-2 mb-2 border outline-none" 
+        <input type="text" placeholder="Job Title" className=" rounded w-full p-2 mb-2 border outline-none" 
           value={newJob.title} 
           onChange={(e) => setNewJob({ ...newJob, title: e.target.value })} />
-        <input type="text" placeholder="Company" className=" rounded-lg w-full p-2 mb-2 border outline-none" 
+        <input type="text" placeholder="Company" className=" rounded w-full p-2 mb-2 border outline-none" 
           value={newJob.company}
           onChange={(e) => setNewJob({ ...newJob, company: e.target.value })} />
-        <input type="text" placeholder="Location" className=" rounded-lg w-full p-2 mb-2 border outline-none" 
+        <input type="text" placeholder="Location" className=" rounded w-full p-2 mb-2 border outline-none" 
           value={newJob.location}
           onChange={(e) => setNewJob({ ...newJob, location: e.target.value })} />
-        <input type="text" placeholder="Experience" className=" rounded-lg w-full p-2 mb-2 border outline-none" 
+        <input type="text" placeholder="Experience" className=" rounded w-full p-2 mb-2 border outline-none" 
           value={newJob.experience}
           onChange={(e) => setNewJob({ ...newJob, experience: e.target.value })} />
         <input type="text" placeholder="Qualifications (comma-separated)" className=" rounded-lg w-full p-2 mb-2 border outline-none" 
           value={newJob.qualifications}
           onChange={(e) => setNewJob({ ...newJob, qualifications: e.target.value })} />
-        <button className=" rounded-lg w-full p-2 bg-blue-500 text-white hover:bg-blue-600" onClick={handlePostJob}>
+        <button className=" rounded w-full p-2 bg-blue-500 text-white hover:bg-blue-600" onClick={handlePostJob}>
           Post Job
         </button>
       </aside>
 
       <main className="w-full md:w-3/4 p-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold max-md:text-[20px] ">Your Job Listings</h1>
+          <h1 className="text-2xl font-bold max-md:text-[20px] flex  items-center ">Your Job Listings<img src={recruiter} className="h-20 m-2" alt="recruiter.svg" /> </h1>
 
           {/* Logout Button */}
           <button className="p-2 bg-red-500 text-white rounded hover:bg-red-600 flex items-center justify-center" onClick={handleLogout}>
@@ -94,7 +97,7 @@ export default function RecruitersDashboard() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 mt-10">
           {jobs.map((job) => (
             <div key={job.id} className="bg-white p-4 rounded-lg ">
               <h3 className="text-xl">
