@@ -10,6 +10,7 @@ export default function JobSeekersDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [iconPosition, setIconPosition] = useState({ x: 20, y: 20 });
   const [dragging, setDragging] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -66,9 +67,17 @@ export default function JobSeekersDashboard() {
         jobCompany.includes(searchQuery.toLowerCase()))
     );
   });
+
+  useEffect(() => {
+    if (filteredJobs.length === 0) {
+      setErrorMessage("No job found relating to your filter.");
+    } else {
+      setErrorMessage("");
+    }
+  }, [filteredJobs]);
+
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
-      {/* Sidebar Toggle Button */}
       <button 
         className="md:hidden p-4 text-gray-700 fixed rounded-full shadow-lg z-50" 
         style={{ top: `${iconPosition.y}px`, left: `${iconPosition.x}px`, position: "absolute" }}
@@ -103,35 +112,21 @@ export default function JobSeekersDashboard() {
       <main className="w-full md:w-3/4 p-6">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-xl font-bold">Job Listings</h1>
-
-          {/* Logout Button */}
           <button className="p-2 bg-red-500 text-white rounded hover:bg-red-600 flex items-center justify-center" onClick={handleLogout}>
             <i className='bx bx-log-out text-xl mr-2'></i> Logout
           </button>
         </div>
 
+        {errorMessage && <p className="text-red-500 text-center mb-4">{errorMessage}</p>}
+
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4">
           {filteredJobs.map((job) => (
             <div key={job.id} className="bg-white p-4 rounded-sm ">
-              <h3 className="text-2xl mb-3">{job.title}</h3>
-              <p className="text-gray-700 m-1 text-md">
-                <i className='bx bx-buildings text-2xl'></i>
-                Company: {job.company}</p>
-              <p className="text-gray-700 m-1 text-md">
-              <i className='bx bx-location-plus text-2xl'></i>                
-                Location: {job.location}</p>
-              <p className="text-gray-700 m-1 text-md">
-                <i className='bx bx-extension text-2xl'></i>
-                Experience: {job.experience}</p>
-              <hr className="m-2" />
-
-              <p className="text-gray-700 m-3">Minimum Qualifications:</p>
-              <ul className="list-disc list-inside text-gray-600">
-                {job.qualifications?.map((qual, idx) => (
-                  <li key={idx}>{qual}</li>
-                ))}
-              </ul>
-              <button className="mt-4 px-4 py-2 m-3 bg-blue-500 text-white rounded hover:bg-blue-600">Learn More</button>
+              <h3 className="text-2xl mb-3 max-md:text-lg">{job.title}</h3>
+              <p className="text-gray-700 m-1 text-md max-md:text-sm">Company: {job.company}</p>
+              <p className="text-gray-700 m-1 text-md max-md:text-sm">Location: {job.location}</p>
+              <p className="text-gray-700 m-1 text-md max-md:text-sm">Experience: {job.experience}</p>
+              <button className="mt-4 px-4 py-2 m-1 bg-blue-500 text-white rounded hover:bg-blue-600">Learn More</button>
             </div>
           ))}
         </div>
@@ -139,5 +134,3 @@ export default function JobSeekersDashboard() {
     </div>
   );
 }
-
-
