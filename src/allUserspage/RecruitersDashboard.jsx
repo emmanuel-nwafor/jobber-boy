@@ -9,6 +9,7 @@ export default function RecruitersDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
+  
   useEffect(() => {
     const fetchJobs = async () => {
       try {
