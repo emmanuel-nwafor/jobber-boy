@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 // svg import
 import login from "../assets/login.svg"
+import loginModal from "../assets/loginModal.svg"
 
 const auth = getAuth(app);
 const firestore = getFirestore(app);
@@ -116,7 +117,10 @@ export default function Login() {
 
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-7 m-5 rounded-lg shadow-lg text-center">
+          <div className="bg-white p-7 m-5 rounded-lg shadow-lg text-center items-center justify-center ">
+
+            <img src={loginModal} alt="modal.svg" className="h-24  max-md:ml-14 ml-20" />
+
             <h3 className="text-lg font-semibold text-green-600">Login Successful!</h3>
             <p className="mt-2 text-gray-700">
               Redirecting to your {userRole === "job_seeker" ? "Job Seeker" : "Recruiter"} Dashboard...

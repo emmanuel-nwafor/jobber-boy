@@ -64,29 +64,29 @@ export default function RecruitersDashboard() {
           <i className='bx bx-x text-2xl'></i>
         </button>
         <h2 className="text-xl font-semibold mb-4">Post a Job</h2>
-        <input type="text" placeholder="Job Title" className="w-full p-2 mb-2 border rounded outline-none" 
+        <input type="text" placeholder="Job Title" className=" rounded-lg w-full p-2 mb-2 border outline-none" 
           value={newJob.title} 
           onChange={(e) => setNewJob({ ...newJob, title: e.target.value })} />
-        <input type="text" placeholder="Company" className="w-full p-2 mb-2 border rounded outline-none" 
+        <input type="text" placeholder="Company" className=" rounded-lg w-full p-2 mb-2 border outline-none" 
           value={newJob.company}
           onChange={(e) => setNewJob({ ...newJob, company: e.target.value })} />
-        <input type="text" placeholder="Location" className="w-full p-2 mb-2 border rounded outline-none" 
+        <input type="text" placeholder="Location" className=" rounded-lg w-full p-2 mb-2 border outline-none" 
           value={newJob.location}
           onChange={(e) => setNewJob({ ...newJob, location: e.target.value })} />
-        <input type="text" placeholder="Experience" className="w-full p-2 mb-2 border rounded outline-none" 
+        <input type="text" placeholder="Experience" className=" rounded-lg w-full p-2 mb-2 border outline-none" 
           value={newJob.experience}
           onChange={(e) => setNewJob({ ...newJob, experience: e.target.value })} />
-        <input type="text" placeholder="Qualifications (comma-separated)" className="w-full p-2 mb-2 border outline-none rounded" 
+        <input type="text" placeholder="Qualifications (comma-separated)" className=" rounded-lg w-full p-2 mb-2 border outline-none" 
           value={newJob.qualifications}
           onChange={(e) => setNewJob({ ...newJob, qualifications: e.target.value })} />
-        <button className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={handlePostJob}>
+        <button className=" rounded-lg w-full p-2 bg-blue-500 text-white hover:bg-blue-600" onClick={handlePostJob}>
           Post Job
         </button>
       </aside>
 
       <main className="w-full md:w-3/4 p-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold mb-4">Your Job Listings</h1>
+          <h1 className="text-2xl font-bold max-md:text-[20px] ">Your Job Listings</h1>
 
           {/* Logout Button */}
           <button className="p-2 bg-red-500 text-white rounded hover:bg-red-600 flex items-center justify-center" onClick={handleLogout}>
@@ -94,24 +94,24 @@ export default function RecruitersDashboard() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-10">
           {jobs.map((job) => (
             <div key={job.id} className="bg-white p-4 rounded-lg ">
               <h3 className="text-xl">
                 {job.title}
               </h3>
               <div className="flex items-center justify-between mt-5">
-                <p className="text-gray-700 items-center flex ">
-                  <i class='bx bx-buildings text-2xl'></i>{job.company}
+                <p className="text-gray-700 items-center flex max-md:text-sm ">
+                  <i className='bx bx-buildings text-2xl'></i>{job.company}
                 </p>
-                <p className="text-gray-700 items-center flex ">
-                  <i class='bx bx-location-plus text-2xl'></i>{job.location}
+                <p className="text-gray-700 items-center flex max-md:text-sm ">
+                  <i className='bx bx-location-plus text-2xl'></i>{job.location}
                 </p>
               </div>
-              <p className="text-gray-700 mt-2">{job.experience}</p>
+              <p className="text-gray-700 mt-2 max-md:text-sm">{job.experience}</p>
               <hr className="m-2" />
-              <p className="text-gray-700 mb-2">Qualifications:</p>
-              <ul className="list-disc list-inside text-gray-600">
+              <p className="text-gray-700 mb-2 max-md:text-sm">Qualifications:</p>
+              <ul className="list-disc list-inside text-gray-600 text-sm ">
                 {(Array.isArray(job.qualifications) ? job.qualifications : job.qualifications?.split(",") || []).map((qual, idx) => (
                   <li key={idx}>{qual.trim()}</li>
                 ))}

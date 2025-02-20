@@ -110,20 +110,28 @@ export default function JobSeekersDashboard() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4">
           {filteredJobs.map((job) => (
             <div key={job.id} className="bg-white p-4 rounded-sm ">
               <h3 className="text-2xl mb-3">{job.title}</h3>
-              <p className="text-gray-700 m-1 text-md">Company: {job.company}</p>
-              <p className="text-gray-700 m-1 text-md">Location: {job.location}</p>
-              <p className="text-gray-700 m-1 text-md">Experience: {job.experience}</p>
-              <p className="text-gray-700 font-semibold mt-2">Minimum Qualifications:</p>
+              <p className="text-gray-700 m-1 text-md">
+                <i className='bx bx-buildings text-2xl'></i>
+                Company: {job.company}</p>
+              <p className="text-gray-700 m-1 text-md">
+              <i className='bx bx-location-plus text-2xl'></i>                
+                Location: {job.location}</p>
+              <p className="text-gray-700 m-1 text-md">
+                <i className='bx bx-extension text-2xl'></i>
+                Experience: {job.experience}</p>
+              <hr className="m-2" />
+
+              <p className="text-gray-700 m-3">Minimum Qualifications:</p>
               <ul className="list-disc list-inside text-gray-600">
                 {job.qualifications?.map((qual, idx) => (
                   <li key={idx}>{qual}</li>
                 ))}
               </ul>
-              <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Learn More</button>
+              <button className="mt-4 px-4 py-2 m-3 bg-blue-500 text-white rounded hover:bg-blue-600">Learn More</button>
             </div>
           ))}
         </div>
