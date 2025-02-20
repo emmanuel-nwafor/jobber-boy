@@ -66,7 +66,6 @@ export default function JobSeekersDashboard() {
         jobCompany.includes(searchQuery.toLowerCase()))
     );
   });
-
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
       {/* Sidebar Toggle Button */}
@@ -113,11 +112,11 @@ export default function JobSeekersDashboard() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredJobs.map((job) => (
-            <div key={job.id} className="bg-white p-4 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold">{job.title}</h3>
-              <p className="text-gray-700"><strong>Company:</strong> {job.company}</p>
-              <p className="text-gray-700"><strong>Location:</strong> {job.location}</p>
-              <p className="text-gray-700"><strong>Experience:</strong> {job.experience}</p>
+            <div key={job.id} className="bg-white p-4 rounded-sm ">
+              <h3 className="text-2xl mb-3">{job.title}</h3>
+              <p className="text-gray-700 m-1 text-md">Company: {job.company}</p>
+              <p className="text-gray-700 m-1 text-md">Location: {job.location}</p>
+              <p className="text-gray-700 m-1 text-md">Experience: {job.experience}</p>
               <p className="text-gray-700 font-semibold mt-2">Minimum Qualifications:</p>
               <ul className="list-disc list-inside text-gray-600">
                 {job.qualifications?.map((qual, idx) => (
@@ -132,3 +131,5 @@ export default function JobSeekersDashboard() {
     </div>
   );
 }
+
+
